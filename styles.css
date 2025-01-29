@@ -1,0 +1,161 @@
+/* Réinitialisation des marges et du padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5; /* Fond clair pour toute la page */
+  color: #333; /* Texte sombre pour une bonne lisibilité */
+  line-height: 1.6; /* Amélioration de la lisibilité du texte */
+}
+
+header {
+  background-color: #6a1b9a; /* Violet foncé pour un header élégant */
+  text-align: center;
+  padding: 30px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre douce pour ajouter de la profondeur */
+  margin-bottom: 0; /* Supprimer la marge sous le header */
+}
+
+header h1 {
+  color: #fff; /* Texte en blanc pour contraster avec le fond */
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+}
+
+nav.menu {
+  background-color: #ff7043; /* Couleur orange vif pour le menu */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 0; /* Supprimer la marge au-dessus du menu */
+}
+
+/* Menu classique pour les grands écrans */
+.menu-items {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px 0;
+}
+
+.menu-items li {
+  margin: 0;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #fff; /* Texte blanc pour un bon contraste */
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border-radius: 12px; /* Coins arrondis pour un look plus moderne */
+  transition: all 0.3s ease;
+}
+
+.menu-items a:hover {
+  background-color: #ff5722; /* Rouge plus vif pour l'effet de survol */
+  color: #fff; /* Conserver le texte en blanc pendant le survol */
+  transform: scale(1.05); /* Effet de zoom léger */
+}
+
+/* Bouton hamburger */
+.menu-toggle {
+  display: none; /* Cacher la case à cocher */
+}
+
+.menu-icon {
+  display: none; /* Cacher le bouton hamburger sur les grands écrans */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001; /* Assurer qu'il soit au-dessus des autres éléments */
+}
+
+.bar {
+  width: 40px;
+  height: 5px;
+  background-color:rgb(214, 30, 190); /* Couleur blanche pour les barres du hamburger */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Changement de couleur sur survol du hamburger */
+.menu-icon:hover .bar {
+  background-color: #ff5722; /* Couleur rouge vif lors du survol */
+}
+
+/* Disparition du menu et affichage du hamburger pour les petits écrans */
+@media (max-width: 768px) {
+  .menu-items {
+    display: none; /* Masquer le menu par défaut */
+    flex-direction: column;
+    position: absolute;
+    top: 0; /* Placer le menu directement sous le header */
+    left: 0;
+    right: 0;
+    background-color: #6a1b9a; /* Violet pour le fond du menu mobile */
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Agrandir le menu pour qu'il occupe toute la largeur de l'écran */
+  }
+
+  /* Affichage du menu lorsqu'il est activé */
+  .menu-toggle:checked + .menu-icon + .menu-items {
+    display: flex;
+  }
+
+  /* Afficher le bouton hamburger */
+  .menu-icon {
+    display: flex; /* Affiche le bouton hamburger sur petits écrans */
+  }
+
+  nav.menu ul li {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  nav.menu a {
+    padding: 18px;
+    background-color: #ff7043; /* Fond orange pour le menu mobile */
+    font-size: 1.4rem;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav.menu a:hover {
+    background-color: #ff5722; /* Couleur de survol plus foncée */
+    color: #fff; /* Maintien de la couleur du texte */
+  }
+}
+
+/* Animation du menu mobile */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+/* Animation du menu mobile (plus lent) */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%); /* Le menu commence hors de l'écran, en haut */
+  }
+  to {
+    transform: translateY(0); /* Le menu arrive à sa position normale */
+  }
+}
+
+
+
